@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echo Chatbot Widget — Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/chatbot.css">
+    <style>
+        /* Minimal demo page styling */
+        body { margin:0; font-family:'Inter',sans-serif; background:#0d1117; color:#e5e7eb; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+        .demo-notice { text-align:center; opacity:.5; font-size:.95rem; }
+        .demo-notice h2 { font-size:1.5rem; margin-bottom:.5rem; }
+    </style>
+</head>
+<body>
+    <div class="demo-notice">
+        <h2>🤖 Echo Chatbot Widget</h2>
+        <p>Click the chat button in the bottom-right corner to open the chatbot.</p>
+        <p style="margin-top:.5rem;font-size:.8rem;">This is a demo page. The widget can be embedded on any site.</p>
+    </div>
+
+    <!-- ========== EMBEDDABLE CHATBOT WIDGET ========== -->
+    <!-- To embed: include chatbot.css, chatbot.js, and this HTML block -->
+
+    <div id="echo-chatbot-widget">
+        <!-- FAB Button -->
+        <button class="echo-fab" id="echoFab" title="Chat with Echo">
+            <svg class="echo-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span class="echo-fab-pulse"></span>
+        </button>
+
+        <!-- Chat Window -->
+        <div class="echo-window" id="echoWindow">
+            <div class="echo-header">
+                <div class="echo-header-left">
+                    <div class="echo-avatar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+                    </div>
+                    <div>
+                        <div class="echo-name">Echo</div>
+                        <div class="echo-status"><span class="echo-dot"></span>Online</div>
+                    </div>
+                </div>
+                <button class="echo-close-btn" id="echoClose" title="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="echo-messages" id="echoMessages">
+                <div class="echo-msg echo-bot">
+                    <div class="echo-msg-bubble">Hi! I'm <strong>Echo</strong>, your AI assistant. How can I help you today?</div>
+                </div>
+            </div>
+            <form class="echo-input-area" id="echoForm">
+                <input type="text" class="echo-input" id="echoInput" placeholder="Type a message..." maxlength="500" autocomplete="off" required>
+                <button type="submit" class="echo-send-btn" title="Send">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/chatbot.js"></script>
+</body>
+</html>
